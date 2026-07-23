@@ -1,26 +1,275 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─────────────────────────────────────────────
+   SAK Study & Travel — Global Design System
+   Tailwind CSS v4 Theme Tokens
+   ───────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Colors ── */
+  --color-primary:                 #ba0010;
+  --color-primary-container:       #e12424;
+  --color-on-primary:              #ffffff;
+  --color-primary-fixed:           #ffdad6;
+  --color-primary-fixed-dim:       #ffb4ab;
+  --color-on-primary-fixed:        #410002;
+  --color-on-primary-fixed-variant: #93000a;
+  --color-on-primary-container:    #fffafa;
+  --color-inverse-primary:         #ffb4ab;
+  --color-surface-tint:            #c00011;
+
+  --color-secondary:               #515e7f;
+  --color-on-secondary:            #ffffff;
+  --color-secondary-container:     #cad6fe;
+  --color-secondary-fixed:         #d9e2ff;
+  --color-secondary-fixed-dim:     #b9c6ed;
+  --color-on-secondary-fixed:      #0c1a38;
+  --color-on-secondary-fixed-variant: #394666;
+  --color-on-secondary-container:  #505d7e;
+
+  --color-tertiary:                #595c5d;
+  --color-on-tertiary:             #ffffff;
+  --color-tertiary-container:      #727475;
+  --color-on-tertiary-container:   #fafbfc;
+  --color-tertiary-fixed:          #e1e3e4;
+  --color-tertiary-fixed-dim:      #c5c7c8;
+  --color-on-tertiary-fixed:       #191c1d;
+  --color-on-tertiary-fixed-variant: #454748;
+
+  --color-surface:                 #f9f9ff;
+  --color-surface-bright:          #f9f9ff;
+  --color-surface-dim:             #d3daea;
+  --color-surface-variant:         #dce2f3;
+  --color-on-surface:              #151c27;
+  --color-on-surface-variant:      #5d3f3c;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low:   #f0f3ff;
+  --color-surface-container:       #e7eefe;
+  --color-surface-container-high:  #e2e8f8;
+  --color-surface-container-highest: #dce2f3;
+  --color-surface-cream:           #fdfdfd;
+
+  --color-deep-navy:               #071228;
+  --color-inverse-surface:         #2a313d;
+  --color-inverse-on-surface:      #ebf1ff;
+
+  --color-outline:                 #916f6b;
+  --color-outline-variant:         #e6bdb8;
+  --color-border-subtle:           #e5e7eb;
+
+  --color-error:                   #ba1a1a;
+  --color-on-error:                #ffffff;
+  --color-error-container:         #ffdad6;
+  --color-on-error-container:      #93000a;
+
+  --color-status-success:          #10b981;
+  --color-background:              #f9f9ff;
+  --color-on-background:           #151c27;
+
+  /* ── Spacing ── */
+  --spacing-stack-sm:       0.5rem;
+  --spacing-stack-md:       1rem;
+  --spacing-stack-lg:       2rem;
+  --spacing-section-padding: 5rem;
+  --spacing-margin-mobile:   1rem;
+  --spacing-gutter:          1.5rem;
+  --spacing-container-max:   1280px;
+
+  /* ── Border Radius ── */
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg:      0.25rem;
+  --radius-xl:      0.5rem;
+  --radius-full:    0.75rem;
+
+  /* ── Font Family ── */
+  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+
+  /* ── Font Sizes ── */
+  --font-size-display-lg:        48px;
+  --line-height-display-lg:      1.2;
+  --font-size-display-lg-mobile: 32px;
+  --line-height-display-lg-mobile: 1.2;
+  --font-size-headline-md:       24px;
+  --line-height-headline-md:     1.3;
+  --font-size-body-lg:           18px;
+  --line-height-body-lg:         1.6;
+  --font-size-body-md:           16px;
+  --line-height-body-md:         1.6;
+  --font-size-label-bold:        14px;
+  --line-height-label-bold:      1.0;
+  --font-size-caption:           12px;
+  --line-height-caption:         1.4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────────
+   Base Reset & Body
+   ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-on-surface);
+  background: var(--color-surface-container-lowest);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────
+   Utility Classes
+   ───────────────────────────────────────────── */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(7, 18, 40, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary-container), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.container-max {
+  max-width: var(--spacing-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* ─────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 10px 30px rgba(225, 36, 36, 0.3); }
+  50%       { box-shadow: 0 15px 40px rgba(225, 36, 36, 0.5); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   Typography helpers
+   ───────────────────────────────────────────── */
+
+.text-display-lg {
+  font-size: var(--font-size-display-lg);
+  line-height: var(--line-height-display-lg);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg-mobile {
+  font-size: var(--font-size-display-lg-mobile);
+  line-height: var(--line-height-display-lg-mobile);
+  font-weight: 800;
+}
+
+.text-headline-md {
+  font-size: var(--font-size-headline-md);
+  line-height: var(--line-height-headline-md);
+  font-weight: 700;
+}
+
+.text-body-lg {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+}
+
+.text-body-md {
+  font-size: var(--font-size-body-md);
+  line-height: var(--line-height-body-md);
+}
+
+.text-label-bold {
+  font-size: var(--font-size-label-bold);
+  line-height: var(--line-height-label-bold);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.text-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   Section Padding
+   ───────────────────────────────────────────── */
+.section-padding {
+  padding-top: var(--spacing-section-padding);
+  padding-bottom: var(--spacing-section-padding);
+}
+
+/* ─────────────────────────────────────────────
+   Line Clamp utilities
+   ───────────────────────────────────────────── */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
