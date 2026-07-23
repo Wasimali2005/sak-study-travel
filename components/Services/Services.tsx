@@ -6,7 +6,10 @@ export default function Services() {
     <section id="services" className={styles.services}>
       <div className={styles.header}>
         <p className={styles.kicker}>Our services</p>
-        <h2 className={styles.title}>Everything you need for study abroad success.</h2>
+        <h2 className={styles.title}>Comprehensive support at every step of your journey.</h2>
+        <p className={styles.text}>
+          From university shortlisting to visa preparation and departure planning, we make every transition feel clear and manageable.
+        </p>
       </div>
       <div className={styles.grid}>
         {services.map((service) => (

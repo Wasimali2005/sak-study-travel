@@ -1,6 +1,6 @@
 .blog {
   padding: 6rem 1.5rem;
-  background: var(--color-surface-container);
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
 }
 
 .header {
@@ -19,6 +19,7 @@
 .title {
   font-size: clamp(2rem, 3.5vw, 3.25rem);
   line-height: 1.1;
+  color: #071228;
 }
 
 .grid {
@@ -62,8 +63,9 @@
 }
 
 .postTitle {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   margin-bottom: 0.85rem;
+  color: #071228;
 }
 
 .excerpt {

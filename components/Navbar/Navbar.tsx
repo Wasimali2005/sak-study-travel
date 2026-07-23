@@ -6,7 +6,10 @@ export default function Navbar() {
   return (
     <header className={styles.navbar}>
       <div className={styles.brand}>
-        <Link href="#home">SAK Study & Travel</Link>
+        <Link href="#home" className={styles.brandLink}>
+          <span className={styles.brandMark}>S</span>
+          <span>SAK Study & Travel</span>
+        </Link>
       </div>
       <nav className={styles.navigation} aria-label="Primary navigation">
         {navLinks.map((link) => (

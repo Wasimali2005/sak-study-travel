@@ -6,8 +6,13 @@ export default function Destinations() {
   return (
     <section id="destinations" className={styles.destinations}>
       <div className={styles.header}>
-        <p className={styles.kicker}>Top destinations</p>
-        <h2 className={styles.title}>Study in the world’s most sought-after countries.</h2>
+        <div>
+          <p className={styles.kicker}>Top destinations</p>
+          <h2 className={styles.title}>Study in the world’s most sought-after countries.</h2>
+        </div>
+        <a href="#contact" className={styles.cta}>
+          Plan your move
+        </a>
       </div>
       <div className={styles.grid}>
         {destinations.map((destination) => (

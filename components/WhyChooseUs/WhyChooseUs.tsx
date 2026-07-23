@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./WhyChooseUs.module.css";
 
 const reasons = [
@@ -13,14 +14,19 @@ export default function WhyChooseUs() {
         <p className={styles.kicker}>Why choose us</p>
         <h2 className={styles.title}>A trusted guide throughout your international study journey.</h2>
       </div>
-      <ul className={styles.list}>
-        {reasons.map((reason) => (
-          <li key={reason} className={styles.item}>
-            <span className={styles.check}>✓</span>
-            <span>{reason}</span>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.content}>
+        <div className={styles.imageWrapper}>
+          <Image src="/images/why-choose-1.jpg" alt="Study planning consultation" fill sizes="(max-width: 1024px) 100vw, 45vw" className={styles.image} />
+        </div>
+        <ul className={styles.list}>
+          {reasons.map((reason) => (
+            <li key={reason} className={styles.item}>
+              <span className={styles.check}>✓</span>
+              <span>{reason}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

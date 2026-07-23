@@ -1,6 +1,6 @@
 .testimonials {
   padding: 6rem 1.5rem;
-  background: var(--color-surface-container);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
 }
 
 .header {
@@ -19,6 +19,7 @@
 .title {
   font-size: clamp(2rem, 3.5vw, 3.25rem);
   line-height: 1.1;
+  color: #071228;
 }
 
 .grid {
@@ -78,6 +79,7 @@
 .name {
   font-weight: 700;
   margin-bottom: 0.25rem;
+  color: #071228;
 }
 
 .role {

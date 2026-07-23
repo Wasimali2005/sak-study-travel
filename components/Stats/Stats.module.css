@@ -1,6 +1,26 @@
 .stats {
-  padding: 4rem 1.5rem;
-  background: #ffffff;
+  padding: 4.5rem 1.5rem 5rem;
+  background: linear-gradient(180deg, #fff7f7 0%, #ffffff 100%);
+}
+
+.header {
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ba0010;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  color: #071228;
 }
 
 .grid {
@@ -14,7 +34,8 @@
 .card {
   padding: 2rem;
   border-radius: 1.5rem;
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
   text-align: center;
 }

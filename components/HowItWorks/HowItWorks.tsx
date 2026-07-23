@@ -21,6 +21,7 @@ export default function HowItWorks() {
       <div className={styles.header}>
         <p className={styles.kicker}>How it works</p>
         <h2 className={styles.title}>A simple process for international study success.</h2>
+        <p className={styles.text}>Every step is handled with clarity, attention, and a plan that fits your timeline.</p>
       </div>
       <div className={styles.grid}>
         {steps.map((step, index) => (

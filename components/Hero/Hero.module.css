@@ -1,46 +1,109 @@
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
-  gap: 3rem;
-  padding: 5rem 1.5rem;
+  gap: 2.5rem;
+  padding: 6rem 1.5rem 5rem;
+  background: linear-gradient(135deg, #fff7f7 0%, #ffffff 55%, #f4f8ff 100%);
 }
 
 .content {
-  max-width: 40rem;
+  max-width: 42rem;
 }
 
-.kicker {
-  display: inline-block;
+.pill {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 1rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(186, 0, 16, 0.08);
   color: #ba0010;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .title {
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  line-height: 1.05;
+  font-size: clamp(2.6rem, 4vw, 4.35rem);
+  line-height: 1.03;
   font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 1.5rem;
+  color: #071228;
+  margin-bottom: 1.25rem;
 }
 
 .subtitle {
   max-width: 38rem;
-  font-size: 1.125rem;
+  font-size: 1.08rem;
   line-height: 1.8;
   color: #475569;
+  margin-bottom: 1.75rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryButton {
+  background: #ba0010;
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(186, 0, 16, 0.18);
+}
+
+.secondaryButton {
+  background: #ffffff;
+  color: #071228;
+  border: 1px solid rgba(7, 18, 40, 0.12);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.highlight {
+  padding: 0.6rem 0.85rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.imageCard {
+  position: relative;
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  min-height: 28rem;
-  border-radius: 1.5rem;
+  min-height: 32rem;
+  border-radius: 2rem;
   overflow: hidden;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
 }
 
 .heroImage {
@@ -49,6 +112,32 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.overlayCard {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  padding: 1.2rem 1.3rem;
+  border-radius: 1.2rem;
+  background: rgba(7, 18, 40, 0.78);
+  color: #f8fafc;
+  backdrop-filter: blur(10px);
+}
+
+.overlayLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.45rem;
+  color: #fca5a5;
+}
+
+.overlayText {
+  line-height: 1.7;
+  color: rgba(248, 250, 252, 0.92);
 }
 
 @media (max-width: 1024px) {
@@ -64,10 +153,15 @@
 
 @media (max-width: 640px) {
   .hero {
-    padding: 3rem 1rem;
+    padding: 3.25rem 1rem 3rem;
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: 2.45rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
