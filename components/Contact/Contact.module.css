@@ -12,6 +12,10 @@
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
 }
 
+.headerBlock {
+  margin-bottom: 2rem;
+}
+
 .kicker {
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -32,10 +36,45 @@
   margin-bottom: 2rem;
 }
 
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.label {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 1rem;
+  background: #f8fafc;
+  color: #0f172a;
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #ba0010;
+  box-shadow: 0 0 0 4px rgba(186, 0, 16, 0.1);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  align-items: center;
 }
 
 .button {
@@ -50,12 +89,19 @@
   font-weight: 700;
   box-shadow: 0 16px 30px rgba(186, 0, 16, 0.18);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .button:hover,
 .button:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 20px 35px rgba(186, 0, 16, 0.22);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .link {
@@ -69,6 +115,26 @@
 .link:hover,
 .link:focus-visible {
   text-decoration: underline;
+}
+
+.feedbackSuccess,
+.feedbackError {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 700;
+}
+
+.feedbackSuccess {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #34d399;
+}
+
+.feedbackError {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
 }
 
 @media (max-width: 640px) {
