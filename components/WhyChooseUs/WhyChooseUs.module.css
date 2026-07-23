@@ -1,0 +1,50 @@
+.whyChooseUs {
+  padding: 5rem 1.5rem;
+  background: #f8fafc;
+}
+
+.intro {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ba0010;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.1;
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: #ba0010;
+  color: #ffffff;
+  font-weight: 700;
+}
