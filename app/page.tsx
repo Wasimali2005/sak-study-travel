@@ -8,6 +8,7 @@ import Destinations from "@/components/Destinations/Destinations";
 import Countries from "@/components/Countries/Countries";
 import Stats from "@/components/Stats/Stats";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
+import VisaTypes from "@/components/VisaTypes/VisaTypes";
 import Team from "@/components/Team/Team";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Blog from "@/components/Blog/Blog";
@@ -26,6 +27,7 @@ export default function Home() {
       <Services />
       <Destinations />
       <Countries />
+      <VisaTypes />
       <Stats />
       <WhyChooseUs />
       <Team />
