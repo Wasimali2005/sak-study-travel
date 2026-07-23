@@ -8,6 +8,12 @@ import Destinations from "@/components/Destinations/Destinations";
 import Countries from "@/components/Countries/Countries";
 import Stats from "@/components/Stats/Stats";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
+import Team from "@/components/Team/Team";
+import Testimonials from "@/components/Testimonials/Testimonials";
+import Blog from "@/components/Blog/Blog";
+import FAQ from "@/components/FAQ/FAQ";
+import Contact from "@/components/Contact/Contact";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +28,12 @@ export default function Home() {
       <Countries />
       <Stats />
       <WhyChooseUs />
+      <Team />
+      <Testimonials />
+      <Blog />
+      <FAQ />
+      <Contact />
+      <Footer />
     </main>
   );
 }

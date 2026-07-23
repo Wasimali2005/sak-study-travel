@@ -1,0 +1,43 @@
+.faq {
+  padding: 5rem 1.5rem;
+}
+
+.header {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ba0010;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.1;
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+.item {
+  background: #f8fafc;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+}
+
+.question {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.answer {
+  color: #475569;
+  line-height: 1.8;
+}

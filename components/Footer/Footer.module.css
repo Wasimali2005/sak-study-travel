@@ -1,0 +1,29 @@
+.footer {
+  padding: 3rem 1.5rem;
+  background: #071228;
+  color: #f8fafc;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+.copy {
+  color: #cbd5e1;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
