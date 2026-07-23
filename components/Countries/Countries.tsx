@@ -12,13 +12,15 @@ export default function Countries() {
       <div className={styles.grid}>
         {countries.map((country) => (
           <article key={country.id} className={styles.card}>
-            <Image
-              src={country.image}
-              alt={country.name}
-              width={380}
-              height={260}
-              className={styles.image}
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                src={country.image}
+                alt={country.name}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className={styles.image}
+              />
+            </div>
             <div className={styles.body}>
               <h3 className={styles.cardTitle}>{country.name}</h3>
               <p className={styles.description}>{country.description}</p>

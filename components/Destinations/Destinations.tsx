@@ -16,8 +16,8 @@ export default function Destinations() {
               <Image
                 src={destination.image}
                 alt={destination.title}
-                width={420}
-                height={300}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
                 className={styles.image}
               />
             </div>

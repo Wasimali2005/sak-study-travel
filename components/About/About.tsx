@@ -20,8 +20,8 @@ export default function About() {
         <Image
           src="/images/about-img.jpg"
           alt="Student discussing study options"
-          width={560}
-          height={500}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className={styles.image}
         />
       </div>

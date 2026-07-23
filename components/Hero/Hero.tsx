@@ -15,8 +15,8 @@ export default function Hero() {
         <Image
           src="/images/hero-bg.jpg"
           alt="International students and travel scene"
-          width={620}
-          height={520}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className={styles.heroImage}
           priority
         />
