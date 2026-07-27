@@ -23,9 +23,9 @@ export default function Hero() {
             scholarships to help you study at top institutions worldwide.
           </p>
           <div className="flex gap-4 pt-4 animate-fade-in-up animate-delay-300">
-            <button className="bg-primary-container text-on-primary px-8 py-3 rounded font-label-bold hover:bg-primary transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_30px_rgba(225,36,36,0.3)] hover:shadow-[0_15px_40px_rgba(225,36,36,0.5)] active:scale-95">
+            <a href="#process" className="inline-block bg-primary-container text-on-primary px-8 py-3 rounded font-label-bold hover:bg-primary transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_30px_rgba(225,36,36,0.3)] hover:shadow-[0_15px_40px_rgba(225,36,36,0.5)] active:scale-95">
               Get Started
-            </button>
+            </a>
           </div>
         </div>
         {/* Hero Decorative Graphic */}

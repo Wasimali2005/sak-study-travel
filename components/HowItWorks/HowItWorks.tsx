@@ -1,6 +1,6 @@
 export default function HowItWorks() {
   return (
-    <section className="py-section-padding bg-white relative">
+    <section id="process" className="py-section-padding bg-white relative">
       <div className="max-w-container-max mx-auto px-8 scroll-reveal">
         <div className="text-center mb-16">
           <span className="text-primary-container font-label-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 mb-2">

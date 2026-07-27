@@ -18,8 +18,8 @@ export default function Contact() {
     setIsSubmitting(true);
     setIsSuccess(false);
     setErrorMsg("");
-
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const firstName = formData.get("firstName") as string;
     const lastName = formData.get("lastName") as string;
     const email = formData.get("email") as string;
@@ -49,7 +49,7 @@ export default function Contact() {
       );
 
       setIsSuccess(true);
-      e.currentTarget.reset();
+      form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
       setErrorMsg("Failed to send message. Please try again later.");
@@ -293,10 +293,10 @@ export default function Contact() {
             Book a free counseling session with our experts today and take the
             first step towards your global education.
           </p>
-          <button className="bg-white text-primary-container px-10 py-4 rounded font-label-bold text-lg hover:bg-surface transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg relative overflow-hidden group">
+          <a href="#contact" className="inline-block bg-white text-primary-container px-10 py-4 rounded font-label-bold text-lg hover:bg-surface transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg relative overflow-hidden group">
             <span className="relative z-10">Book Free Consultation</span>
             <div className="absolute inset-0 bg-surface scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out z-0"></div>
-          </button>
+          </a>
         </div>
       </section>
     </>
