@@ -25,17 +25,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", id: "home" },
-    { name: "About", id: "about" },
-    { name: "Visa Types", id: "visa-types" },
     { name: "Destinations", id: "destinations" },
-    { name: "Countries", id: "countries" },
-    { name: "Services", id: "services" },
-    { name: "Why Choose Us", id: "why-choose-us" },
-    { name: "Testimonials", id: "testimonials" },
-    { name: "Blog", id: "blog" },
-    { name: "FAQ", id: "faq" },
-    { name: "Contact", id: "contact" },
+    { name: "Programs", id: "visa-types" },
+    { name: "Visa Services", id: "services" },
+    { name: "Scholarships", id: "scholarships" },
+    { name: "About Us", id: "about" },
   ];
 
   return (
