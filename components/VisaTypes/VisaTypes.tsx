@@ -13,42 +13,42 @@ export default function VisaTypes() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Visa Card 1 */}
-          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-slate-100">
-            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
+          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-[#ff5e5e] hover:bg-[#1a1a2e]">
+            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300 group-hover:bg-white/10">
               <span className="material-symbols-outlined text-2xl">school</span>
             </div>
-            <h3 className="font-label-bold text-xl text-slate-900 mb-3">Student Visa</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
+            <h3 className="font-label-bold text-xl text-slate-900 mb-3 transition-colors duration-300 group-hover:text-white">Student Visa</h3>
+            <p className="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-white/80">
               For full-time degree programs at recognized institutions.
             </p>
           </div>
           {/* Visa Card 2 */}
-          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-slate-100">
-            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
+          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-[#ff5e5e] hover:bg-[#1a1a2e]">
+            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300 group-hover:bg-white/10">
               <span className="material-symbols-outlined text-2xl">science</span>
             </div>
-            <h3 className="font-label-bold text-xl text-slate-900 mb-3">Research Visa</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
+            <h3 className="font-label-bold text-xl text-slate-900 mb-3 transition-colors duration-300 group-hover:text-white">Research Visa</h3>
+            <p className="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-white/80">
               For academic research and fellowship programs.
             </p>
           </div>
           {/* Visa Card 3 */}
-          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-slate-100">
-            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
+          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-[#ff5e5e] hover:bg-[#1a1a2e]">
+            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300 group-hover:bg-white/10">
               <span className="material-symbols-outlined text-2xl">translate</span>
             </div>
-            <h3 className="font-label-bold text-xl text-slate-900 mb-3">Language Course</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
+            <h3 className="font-label-bold text-xl text-slate-900 mb-3 transition-colors duration-300 group-hover:text-white">Language Course</h3>
+            <p className="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-white/80">
               Short-term visas for intensive language studies.
             </p>
           </div>
           {/* Visa Card 4 */}
-          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-slate-100">
-            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
+          <div className="bg-white p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300 group flex flex-col items-start text-left cursor-pointer border border-transparent hover:border-[#ff5e5e] hover:bg-[#1a1a2e]">
+            <div className="w-12 h-12 rounded-xl bg-[#f4f7fb] flex items-center justify-center text-[#ff5e5e] mb-6 group-hover:-translate-y-1 transition-transform duration-300 group-hover:bg-white/10">
               <span className="material-symbols-outlined text-2xl">work</span>
             </div>
-            <h3 className="font-label-bold text-xl text-slate-900 mb-3">Post-Study Work</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
+            <h3 className="font-label-bold text-xl text-slate-900 mb-3 transition-colors duration-300 group-hover:text-white">Post-Study Work</h3>
+            <p className="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-white/80">
               Guidance on post-graduation work opportunities.
             </p>
           </div>
