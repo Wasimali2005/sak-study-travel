@@ -1,32 +1,43 @@
 import Image from "next/image";
 import { countries } from "@/data/countries";
-import styles from "./Countries.module.css";
 
 export default function Countries() {
   return (
-    <section id="countries" className={styles.countries}>
-      <div className={styles.header}>
-        <p className={styles.kicker}>Popular countries</p>
-        <h2 className={styles.title}>Study in the most sought-after destinations.</h2>
-      </div>
-      <div className={styles.grid}>
-        {countries.map((country) => (
-          <article key={country.id} className={styles.card}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={country.image}
-                alt={country.name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
-                className={styles.image}
-              />
+    <section className="py-20 bg-[--color-surface-container-low] relative scroll-reveal">
+      <div className="max-w-[1280px] mx-auto px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <span className="text-[--color-primary-container] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 mb-2">
+            <span className="material-symbols-outlined text-sm">map</span>{" "}
+            Global Reach
+          </span>
+          <h2 className="text-3xl font-bold">More Countries We Offer</h2>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {countries.map((country) => (
+            <div
+              key={country.id}
+              className="relative group overflow-hidden rounded shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer"
+            >
+              <div className="h-40 overflow-hidden">
+                <Image
+                  src={country.image}
+                  alt={country.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[--color-deep-navy]/90 via-[--color-deep-navy]/40 to-transparent flex flex-col justify-end p-4 transition-opacity duration-300">
+                <h3 className="text-white font-bold text-lg">{country.name}</h3>
+                <p className="text-[--color-surface-variant] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  {country.tagline}
+                </p>
+              </div>
             </div>
-            <div className={styles.body}>
-              <h3 className={styles.cardTitle}>{country.name}</h3>
-              <p className={styles.description}>{country.description}</p>
-            </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
