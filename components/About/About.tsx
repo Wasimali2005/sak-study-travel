@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="py-section-padding bg-surface relative overflow-hidden">
+    <section id="about" className="py-section-padding bg-surface relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl -z-10"></div>
       <div className="max-w-container-max mx-auto px-8 scroll-reveal">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

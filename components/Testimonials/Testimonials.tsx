@@ -1,6 +1,6 @@
 export default function Testimonials() {
   return (
-    <section className="py-section-padding bg-surface">
+    <section id="testimonials" className="py-section-padding bg-surface">
       <div className="max-w-container-max mx-auto px-8 scroll-reveal">
         <div className="text-center mb-12">
           <span className="text-primary-container font-label-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 mb-2">

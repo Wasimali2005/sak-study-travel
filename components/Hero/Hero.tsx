@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative pt-20 bg-deep-navy text-on-primary min-h-[600px] flex items-center overflow-hidden">
+    <section id="home" className="relative pt-20 bg-deep-navy text-on-primary min-h-[600px] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-deep-navy/80 z-10 mix-blend-multiply transition-opacity duration-1000"></div>
         <img

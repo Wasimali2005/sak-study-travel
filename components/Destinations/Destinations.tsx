@@ -1,7 +1,7 @@
 export default function Destinations() {
   return (
-    <section className="py-section-padding bg-white">
-      <div className="max-w-container-max mx-auto px-8 scroll-reveal">
+    <section id="destinations" className="py-section-padding bg-surface-container-low scroll-reveal">
+      <div className="max-w-container-max mx-auto px-8">
         <div className="flex justify-between items-end mb-12">
           <div>
             <span className="text-primary-container font-label-bold uppercase tracking-wider text-sm flex items-center gap-2 mb-2">

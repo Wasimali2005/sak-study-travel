@@ -1,6 +1,6 @@
 export default function WhyChooseUs() {
   return (
-    <section className="py-section-padding bg-surface">
+    <section id="why-choose-us" className="py-section-padding bg-surface">
       <div className="max-w-container-max mx-auto px-8 scroll-reveal">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Image Mosaic */}

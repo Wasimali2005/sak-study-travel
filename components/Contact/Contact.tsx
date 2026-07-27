@@ -61,7 +61,7 @@ export default function Contact() {
   return (
     <>
       {/* Contact Section */}
-      <section className="py-section-padding bg-surface-container-low relative">
+      <section id="contact" className="py-section-padding bg-surface-container-low relative">
         <div className="max-w-container-max mx-auto px-8 scroll-reveal">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
@@ -82,49 +82,73 @@ export default function Contact() {
                 </p>
               </div>
               <div className="space-y-6">
+                <a href="https://maps.app.goo.gl/CRy43GJPC4nXtCwo6?g_st=aw" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group hover:opacity-80 transition-opacity">
+                  <div className="w-12 h-12 bg-white rounded shadow-sm flex items-center justify-center text-primary-container shrink-0">
+                    <span className="material-symbols-outlined group-hover:scale-110 transition-transform">location_on</span>
+                  </div>
+                  <div>
+                    <h4 className="font-label-bold text-lg mb-1 group-hover:text-primary-container transition-colors">
+                      Office Address
+                    </h4>
+                    <p className="text-sm text-secondary">
+                      Office No. 322 (A), Block D, 3rd Floor,<br />
+                      Sami Tower, Ring Road, Peshawar
+                    </p>
+                  </div>
+                </a>
+                
+                <a href="mailto:info@tech4edges.com" className="flex items-start gap-4 group hover:opacity-80 transition-opacity">
+                  <div className="w-12 h-12 bg-white rounded shadow-sm flex items-center justify-center text-primary-container shrink-0">
+                    <span className="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
+                  </div>
+                  <div>
+                    <h4 className="font-label-bold text-lg mb-1 group-hover:text-primary-container transition-colors">
+                      Email
+                    </h4>
+                    <p className="text-sm text-secondary">
+                      info@tech4edges.com
+                    </p>
+                  </div>
+                </a>
+
+                <a href="https://wa.me/923374005515" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group hover:opacity-80 transition-opacity">
+                  <div className="w-12 h-12 bg-white rounded shadow-sm flex items-center justify-center text-primary-container shrink-0">
+                    <span className="material-symbols-outlined group-hover:scale-110 transition-transform">forum</span>
+                  </div>
+                  <div>
+                    <h4 className="font-label-bold text-lg mb-1 group-hover:text-primary-container transition-colors">
+                      WhatsApp Number
+                    </h4>
+                    <p className="text-sm text-secondary">
+                      03374005515
+                    </p>
+                  </div>
+                </a>
+
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-white rounded shadow-sm flex items-center justify-center text-primary-container shrink-0">
-                    <span className="material-symbols-outlined">location_on</span>
+                    <span className="material-symbols-outlined">share</span>
                   </div>
                   <div>
                     <h4 className="font-label-bold text-lg mb-1">
-                      Office Location
+                      Social Media
                     </h4>
-                    <p className="text-sm text-secondary">
-                      123 Global Edu Street, Suite 500<br />
-                      New York, NY 10001, USA
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded shadow-sm flex items-center justify-center text-primary-container shrink-0">
-                    <span className="material-symbols-outlined">call</span>
-                  </div>
-                  <div>
-                    <h4 className="font-label-bold text-lg mb-1">Phone Number</h4>
-                    <p className="text-sm text-secondary">
-                      +1 (555) 123-4567<br />
-                      +1 (555) 987-6543
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded shadow-sm flex items-center justify-center text-primary-container shrink-0">
-                    <span className="material-symbols-outlined">mail</span>
-                  </div>
-                  <div>
-                    <h4 className="font-label-bold text-lg mb-1">
-                      Email Address
-                    </h4>
-                    <p className="text-sm text-secondary">
-                      info@sakstudytravel.com<br />
-                      support@sakstudytravel.com
-                    </p>
+                    <div className="flex gap-4 mt-2">
+                      <a href="https://www.facebook.com/share/1857BNt9zY/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary-container text-sm font-medium transition-colors">
+                        Facebook
+                      </a>
+                      <a href="https://www.instagram.com/tech4edgesofficial?igsh=YzZoNnVubHkzMnlv" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary-container text-sm font-medium transition-colors">
+                        Instagram
+                      </a>
+                      <a href="https://www.linkedin.com/company/tech4edges/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary-container text-sm font-medium transition-colors">
+                        LinkedIn
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
               {/* Simple Map Placeholder */}
-              <div className="w-full h-48 bg-surface-dim rounded overflow-hidden shadow-sm relative group cursor-pointer">
+              <a href="https://maps.app.goo.gl/CRy43GJPC4nXtCwo6?g_st=aw" target="_blank" rel="noopener noreferrer" className="block w-full h-48 bg-surface-dim rounded overflow-hidden shadow-sm relative group cursor-pointer mt-8">
                 <img
                   alt="Map location"
                   className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
@@ -135,7 +159,7 @@ export default function Contact() {
                     location_on
                   </span>
                 </div>
-              </div>
+              </a>
             </div>
             {/* Contact Form */}
             <div className="bg-white p-8 rounded shadow-lg">

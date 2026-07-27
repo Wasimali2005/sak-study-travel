@@ -10,7 +10,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-section-padding bg-white">
+    <section id="faq" className="py-section-padding bg-white">
       <div className="max-w-3xl mx-auto px-8 scroll-reveal">
         <div className="text-center mb-12">
           <h2 className="font-headline-md text-3xl font-bold">
