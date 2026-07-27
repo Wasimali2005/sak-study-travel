@@ -14,7 +14,6 @@ export default function Hero() {
           alt="Global education background"
           fill
           className="object-cover transition-transform duration-[10s] ease-out hover:scale-110"
-          priority
         />
       </div>
 
