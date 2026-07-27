@@ -1,15 +1,13 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the entry that is currently intersecting with the highest intersection ratio
         const intersectingEntry = entries.find((entry) => entry.isIntersecting);
         if (intersectingEntry) {
           setActiveSection(intersectingEntry.target.id);
@@ -40,43 +38,39 @@ export default function Navbar() {
     { name: "Contact", id: "contact" },
   ];
 
-  const getLinkClasses = (id: string) => {
-    const baseClasses = "font-medium font-body-md transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap text-[13px] xl:text-[14px]";
-    if (activeSection === id) {
-      return `${baseClasses} text-primary border-b-2 border-primary font-bold pb-1`;
-    }
-    return `${baseClasses} text-on-surface hover:text-primary pb-1`;
-  };
-
   return (
     <nav className="bg-surface-container-lowest shadow-sm fixed top-0 w-full z-50 transition-all duration-300 group hover:shadow-md">
-      <div className="max-w-[1440px] mx-auto flex justify-between items-center px-4 md:px-8 h-20">
+      <div className="max-w-container-max mx-auto flex justify-between items-center px-8 min-h-[5rem] py-4 md:py-0">
         <a href="#home" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105 shrink-0">
-          <span className="material-symbols-outlined text-primary text-2xl md:text-3xl">flight_takeoff</span>
-          <span className="font-display-lg text-lg md:text-xl lg:text-2xl font-extrabold text-primary whitespace-nowrap hidden sm:block">
+          {/* We will use the exact HTML structure for the logo */}
+          <span className="material-symbols-outlined text-primary text-3xl">flight_takeoff</span>
+          <span className="font-display-lg text-headline-md font-extrabold text-primary hidden sm:block">
             SAK Study & Travel
-          </span>
-          <span className="font-display-lg text-xl font-extrabold text-primary whitespace-nowrap sm:hidden">
-            SAK
           </span>
         </a>
         
         {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center gap-3 2xl:gap-5 flex-1 justify-center overflow-hidden px-4">
+        <div className="hidden md:flex flex-wrap items-center justify-center gap-x-8 gap-y-2 max-w-[60%]">
           {navLinks.map((link) => (
-            <a key={link.id} href={`#${link.id}`} className={getLinkClasses(link.id)}>
-              {link.name}
-            </a>
+             <a
+               key={link.id}
+               className={activeSection === link.id 
+                 ? "text-primary border-b-2 border-primary font-bold pb-1 font-body-md transition-all duration-300 hover:-translate-y-0.5" 
+                 : "text-on-surface font-medium hover:text-primary transition-all duration-300 font-body-md hover:-translate-y-0.5"}
+               href={`#${link.id}`}
+             >
+               {link.name}
+             </a>
           ))}
         </div>
         
-        <a href="#contact" className="hidden lg:flex shrink-0 bg-primary-container text-on-primary px-4 py-2 rounded font-label-bold hover:bg-primary transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 text-sm whitespace-nowrap items-center justify-center">
+        <a href="#contact" className="hidden md:block bg-primary-container text-on-primary px-6 py-2 rounded font-label-bold hover:bg-primary transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shrink-0">
           Consult Now
         </a>
-
+        
         {/* Mobile Menu Toggle */}
         <button 
-          className="xl:hidden text-on-surface hover:text-primary transition-colors p-2"
+          className="md:hidden text-on-surface hover:text-primary transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <span className="material-symbols-outlined">{isMobileMenuOpen ? "close" : "menu"}</span>
@@ -85,7 +79,7 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-white shadow-xl absolute top-20 left-0 w-full flex flex-col py-4 border-t border-gray-100 max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden bg-white shadow-xl absolute top-full left-0 w-full flex flex-col py-4 border-t border-gray-100 max-h-[70vh] overflow-y-auto">
           {navLinks.map((link) => (
             <a
               key={link.id}
