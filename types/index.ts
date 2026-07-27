@@ -13,7 +13,7 @@ export interface Service {
 export interface Country {
   id: string;
   name: string;
-  description: string;
+  tagline: string;
   image: string;
 }
 
@@ -21,11 +21,13 @@ export interface VisaType {
   id: string;
   title: string;
   description: string;
+  icon: string;
 }
 
 export interface SectionStat {
   id: string;
-  value: string;
+  value: number;
+  suffix: string;
   label: string;
 }
 
@@ -40,14 +42,17 @@ export interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
+  category: string;
+  date: string;
   image: string;
   href: string;
+  featured?: boolean;
 }
 
 export interface Testimonial {
   id: string;
   name: string;
-  role: string;
+  university: string;
   quote: string;
   avatar: string;
 }
