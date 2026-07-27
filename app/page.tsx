@@ -15,10 +15,12 @@ import Blog from "@/components/Blog/Blog";
 import FAQ from "@/components/FAQ/FAQ";
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
+import ScrollObserver from "@/components/ScrollObserver/ScrollObserver";
 
 export default function Home() {
   return (
     <main>
+      <ScrollObserver />
       <Navbar />
       <Hero />
       <TrustedBy />
