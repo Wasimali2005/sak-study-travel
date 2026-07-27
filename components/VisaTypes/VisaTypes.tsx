@@ -1,39 +1,63 @@
-import { visaTypes } from "@/data/visaTypes";
-
 export default function VisaTypes() {
   return (
-    <section
-      id="visa"
-      className="py-20 bg-[--color-surface-container-low] relative scroll-reveal"
-    >
-      <div className="max-w-[1280px] mx-auto px-8">
-        {/* Header */}
+    <section className="py-section-padding bg-surface-container-low relative">
+      <div className="max-w-container-max mx-auto px-8 scroll-reveal">
         <div className="text-center mb-12">
-          <span className="text-[--color-primary-container] text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 mb-2">
-            <span className="material-symbols-outlined text-sm">
-              description
-            </span>{" "}
-            Types of Visas
+          <span className="text-primary-container font-label-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 mb-2">
+            <span className="material-symbols-outlined text-sm">public</span>{" "}
+            Visas
           </span>
-          <h2 className="text-3xl font-bold">Varieties of Visas We Assist With</h2>
+          <h2 className="font-headline-md text-3xl font-bold">
+            Varieties of Visas
+          </h2>
         </div>
-
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {visaTypes.map((visa) => (
-            <div
-              key={visa.id}
-              className="p-6 bg-white rounded shadow-[0_10px_30px_rgba(7,18,40,0.05)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group border border-[--color-border-subtle] hover:border-[--color-primary-container]"
-            >
-              <div className="w-12 h-12 bg-[--color-surface-container-low] rounded-full flex items-center justify-center text-[--color-primary-container] mb-4 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined">{visa.icon}</span>
-              </div>
-              <h3 className="font-bold text-lg mb-2">{visa.title}</h3>
-              <p className="text-sm text-[--color-secondary]">
-                {visa.description}
-              </p>
+          {/* Visa Card 1 */}
+          <div className="bg-white p-8 rounded shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-primary-container group text-center flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-6 group-hover:bg-primary-container group-hover:text-white transition-all duration-300">
+              <span className="material-symbols-outlined text-3xl">school</span>
             </div>
-          ))}
+            <h3 className="font-label-bold text-lg mb-3">Student Visa</h3>
+            <p className="text-sm text-secondary">
+              Complete assistance for university students, including F1, Tier 4,
+              and Study Permits.
+            </p>
+          </div>
+          {/* Visa Card 2 */}
+          <div className="bg-white p-8 rounded shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-primary-container group text-center flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-6 group-hover:bg-primary-container group-hover:text-white transition-all duration-300">
+              <span className="material-symbols-outlined text-3xl">work</span>
+            </div>
+            <h3 className="font-label-bold text-lg mb-3">Post-Study Work Visa</h3>
+            <p className="text-sm text-secondary">
+              Guidance on securing work permits after completing your degree
+              abroad.
+            </p>
+          </div>
+          {/* Visa Card 3 */}
+          <div className="bg-white p-8 rounded shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-primary-container group text-center flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-6 group-hover:bg-primary-container group-hover:text-white transition-all duration-300">
+              <span className="material-symbols-outlined text-3xl">tour</span>
+            </div>
+            <h3 className="font-label-bold text-lg mb-3">Tourist Visa</h3>
+            <p className="text-sm text-secondary">
+              Hassle-free visitor visas for parents attending graduation
+              ceremonies.
+            </p>
+          </div>
+          {/* Visa Card 4 */}
+          <div className="bg-white p-8 rounded shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-primary-container group text-center flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-6 group-hover:bg-primary-container group-hover:text-white transition-all duration-300">
+              <span className="material-symbols-outlined text-3xl">
+                family_restroom
+              </span>
+            </div>
+            <h3 className="font-label-bold text-lg mb-3">Dependent Visa</h3>
+            <p className="text-sm text-secondary">
+              Reunite with your family through expert dependent visa application
+              support.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,56 +1,101 @@
 "use client";
 
 import { useState } from "react";
-import faqItems from "@/data/faq";
 
 export default function FAQ() {
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (id: string) => setOpenId(openId === id ? null : id);
+  const toggleFaq = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section className="py-20 bg-white scroll-reveal">
-      <div className="max-w-3xl mx-auto px-8">
-        {/* Header */}
+    <section className="py-section-padding bg-white">
+      <div className="max-w-3xl mx-auto px-8 scroll-reveal">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+          <h2 className="font-headline-md text-3xl font-bold">
+            Frequently Asked Questions
+          </h2>
         </div>
-
-        {/* Accordion */}
         <div className="space-y-4">
-          {faqItems.map((item) => {
-            const isOpen = openId === item.id;
-            return (
-              <div
-                key={item.id}
-                className="border border-[--color-border-subtle] rounded group"
+          {/* FAQ Item 1 */}
+          <div className="border border-border-subtle rounded group">
+            <button
+              onClick={() => toggleFaq(0)}
+              className="w-full text-left px-6 py-4 font-label-bold flex justify-between items-center hover:text-primary transition-colors focus:outline-none"
+            >
+              <span>What are the basic requirements to study abroad?</span>
+              <span
+                className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-180"
+                style={{
+                  transform: openIndex === 0 ? "rotate(180deg)" : "rotate(0deg)",
+                }}
               >
-                <button
-                  className="w-full text-left px-6 py-4 font-bold flex justify-between items-center hover:text-[--color-primary] transition-colors focus:outline-none"
-                  onClick={() => toggle(item.id)}
-                  aria-expanded={isOpen}
-                >
-                  <span>{item.question}</span>
-                  <span
-                    className={`material-symbols-outlined transition-transform duration-300 shrink-0 ${
-                      isOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  >
-                    expand_more
-                  </span>
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-40" : "max-h-0"
-                  }`}
-                >
-                  <p className="px-6 pb-4 text-[--color-secondary] text-sm">
-                    {item.answer}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+                expand_more
+              </span>
+            </button>
+            <div
+              className={`px-6 pb-4 text-secondary text-sm ${
+                openIndex === 0 ? "block" : "hidden"
+              }`}
+            >
+              Requirements vary by country and program, but generally include
+              academic transcripts, language proficiency test scores
+              (IELTS/TOEFL), statement of purpose, and letters of recommendation.
+            </div>
+          </div>
+          {/* FAQ Item 2 */}
+          <div className="border border-border-subtle rounded group">
+            <button
+              onClick={() => toggleFaq(1)}
+              className="w-full text-left px-6 py-4 font-label-bold flex justify-between items-center hover:text-primary transition-colors focus:outline-none"
+            >
+              <span>Do you help with scholarships?</span>
+              <span
+                className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-180"
+                style={{
+                  transform: openIndex === 1 ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                expand_more
+              </span>
+            </button>
+            <div
+              className={`px-6 pb-4 text-secondary text-sm ${
+                openIndex === 1 ? "block" : "hidden"
+              }`}
+            >
+              Yes, we provide comprehensive guidance on available scholarships,
+              grants, and financial aid options, and assist with the application
+              process.
+            </div>
+          </div>
+          {/* FAQ Item 3 */}
+          <div className="border border-border-subtle rounded group">
+            <button
+              onClick={() => toggleFaq(2)}
+              className="w-full text-left px-6 py-4 font-label-bold flex justify-between items-center hover:text-primary transition-colors focus:outline-none"
+            >
+              <span>How long does the visa process take?</span>
+              <span
+                className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-180"
+                style={{
+                  transform: openIndex === 2 ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                expand_more
+              </span>
+            </button>
+            <div
+              className={`px-6 pb-4 text-secondary text-sm ${
+                openIndex === 2 ? "block" : "hidden"
+              }`}
+            >
+              Visa processing times depend on the destination country and time of
+              year. On average, it takes 3 to 8 weeks. We recommend starting the
+              process as early as possible.
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,99 +1,55 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { navLinks } from "@/data/navigation";
-
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("Destinations");
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <nav
-      className={`bg-[#ffffff] fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "shadow-md" : "shadow-sm"
-      }`}
-    >
-      <div className="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-20">
-        {/* Logo */}
+    <nav className="bg-surface-container-lowest shadow-sm fixed top-0 w-full z-50 transition-all duration-300 group hover:shadow-md">
+      <div className="max-w-container-max mx-auto flex justify-between items-center px-8 h-20">
         <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-          <span className="material-symbols-outlined text-[--color-primary-container] text-3xl">
-            flight_takeoff
-          </span>
-          <span className="text-2xl font-extrabold text-[--color-primary]">
-            SAK Study &amp; Travel
+          {/* We will use the exact HTML structure for the logo */}
+          <span className="material-symbols-outlined text-primary text-3xl">flight_takeoff</span>
+          <span className="font-display-lg text-headline-md font-extrabold text-primary">
+            SAK Study & Travel
           </span>
         </div>
-
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setActiveLink(link.label)}
-              className={`font-medium transition-all duration-300 hover:-translate-y-0.5 text-sm ${
-                activeLink === link.label
-                  ? "text-[--color-primary] border-b-2 border-[--color-primary] font-bold pb-1"
-                  : "text-[--color-on-surface] hover:text-[--color-primary]"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        {/* CTA Button */}
-        <a
-          href="#contact"
-          className="hidden md:block bg-[--color-primary-container] text-white px-6 py-2 rounded text-sm font-bold tracking-wide hover:bg-[--color-primary] transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
-        >
-          Consult Now
-        </a>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-[--color-on-surface] hover:text-[--color-primary] transition-colors"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className="material-symbols-outlined">
-            {menuOpen ? "close" : "menu"}
-          </span>
-        </button>
-      </div>
-
-      {/* Mobile Menu Drawer */}
-      {menuOpen && (
-        <div className="md:hidden bg-white border-t border-[--color-border-subtle] px-8 py-6 flex flex-col gap-4 shadow-lg">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => {
-                setActiveLink(link.label);
-                setMenuOpen(false);
-              }}
-              className="text-[--color-on-surface] hover:text-[--color-primary] font-medium transition-colors py-1"
-            >
-              {link.label}
-            </a>
-          ))}
           <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="bg-[--color-primary-container] text-white px-6 py-2 rounded text-sm font-bold text-center hover:bg-[--color-primary] transition-all duration-300 mt-2"
+            className="text-primary border-b-2 border-primary font-bold pb-1 font-body-md transition-all duration-300 hover:-translate-y-0.5"
+            href="#"
           >
-            Consult Now
+            Destinations
+          </a>
+          <a
+            className="text-on-surface font-medium hover:text-primary transition-all duration-300 font-body-md hover:-translate-y-0.5"
+            href="#"
+          >
+            Programs
+          </a>
+          <a
+            className="text-on-surface font-medium hover:text-primary transition-all duration-300 font-body-md hover:-translate-y-0.5"
+            href="#"
+          >
+            Visa Services
+          </a>
+          <a
+            className="text-on-surface font-medium hover:text-primary transition-all duration-300 font-body-md hover:-translate-y-0.5"
+            href="#"
+          >
+            Scholarships
+          </a>
+          <a
+            className="text-on-surface font-medium hover:text-primary transition-all duration-300 font-body-md hover:-translate-y-0.5"
+            href="#"
+          >
+            About Us
           </a>
         </div>
-      )}
+        <button className="hidden md:block bg-primary-container text-on-primary px-6 py-2 rounded font-label-bold hover:bg-primary transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95">
+          Consult Now
+        </button>
+        {/* Mobile Menu Toggle */}
+        <button className="md:hidden text-on-surface hover:text-primary transition-colors">
+          <span className="material-symbols-outlined">menu</span>
+        </button>
+      </div>
     </nav>
   );
 }
