@@ -1,25 +1,33 @@
-import type { Service } from "@/types";
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
 
 export const services: Service[] = [
   {
-    id: "service-application",
-    title: "University Application Support",
-    description:
-      "Guidance for choosing programs, completing admission forms, and application tracking.",
-    icon: "school",
+    id: "test-prep",
+    title: "Test Preparation",
+    description: "IELTS, TOEFL, GRE, GMAT coaching.",
+    icon: "menu_book",
   },
   {
-    id: "service-visa",
-    title: "Visa Consultation",
-    description:
-      "Personalized support for student visas, documentation review, and process guidance.",
-    icon: "passport",
+    id: "education-loan",
+    title: "Education Loan",
+    description: "Assistance with securing financial aid.",
+    icon: "account_balance",
   },
   {
-    id: "service-scholarship",
-    title: "Scholarship Assistance",
-    description:
-      "Find scholarship opportunities, application support, and deadline management.",
-    icon: "military_tech",
+    id: "insurance",
+    title: "Insurance",
+    description: "Health and travel insurance guidance.",
+    icon: "health_and_safety",
+  },
+  {
+    id: "accommodation",
+    title: "Accommodation",
+    description: "Help finding suitable student housing.",
+    icon: "apartment",
   },
 ];

@@ -1,29 +1,27 @@
-import type { FAQItem } from "@/types";
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
 
 const faqItems: FAQItem[] = [
   {
     id: "faq-1",
-    question: "How long does the visa process take?",
+    question: "What are the basic requirements to study abroad?",
     answer:
-      "Processing time varies by country, but our team helps you submit a complete application quickly to avoid delays.",
+      "Requirements vary by country and program, but generally include academic transcripts, language proficiency test scores (IELTS/TOEFL), statement of purpose, and letters of recommendation.",
   },
   {
     id: "faq-2",
-    question: "Can SAK help with scholarship applications?",
+    question: "Do you help with scholarships?",
     answer:
-      "Yes. We assist with scholarship search, eligibility screening, and application support for top international programs.",
+      "Yes, we provide comprehensive guidance on available scholarships, grants, and financial aid options, and assist with the application process.",
   },
   {
     id: "faq-3",
-    question: "Do you provide pre-departure guidance?",
+    question: "How long does the visa process take?",
     answer:
-      "We offer pre-departure support, including accommodation advice, travel planning, and arrival orientation.",
-  },
-  {
-    id: "faq-4",
-    question: "What countries do you support?",
-    answer:
-      "Our services cover major study destinations such as the UK, USA, Canada, Australia, and several leading European universities.",
+      "Visa processing times depend on the destination country and time of year. On average, it takes 3 to 8 weeks. We recommend starting the process as early as possible.",
   },
 ];
 

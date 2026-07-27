@@ -1,22 +1,33 @@
-import type { VisaType } from "@/types";
+export interface VisaType {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
 
 export const visaTypes: VisaType[] = [
   {
     id: "student-visa",
     title: "Student Visa",
-    description:
-      "Support for study permit applications and all required education visa documentation.",
+    description: "For full-time degree programs at recognized institutions.",
+    icon: "school",
   },
   {
-    id: "work-visa",
-    title: "Post-Study Work Visa",
-    description:
-      "Advice on staying and working after graduation in your destination country.",
+    id: "research-visa",
+    title: "Research Visa",
+    description: "For academic research and fellowship programs.",
+    icon: "science",
   },
   {
-    id: "tourist-visa",
-    title: "Tourist / Visitor Visa",
-    description:
-      "Short-term travel assistance for families and companions visiting international students.",
+    id: "language-course",
+    title: "Language Course",
+    description: "Short-term visas for intensive language studies.",
+    icon: "translate",
+  },
+  {
+    id: "post-study-work",
+    title: "Post-Study Work",
+    description: "Guidance on post-graduation work opportunities.",
+    icon: "work",
   },
 ];
