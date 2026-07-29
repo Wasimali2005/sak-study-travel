@@ -4,39 +4,72 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 // EmailJS credentials
-const EMAILJS_SERVICE_ID = "service_0yndnl6";
-const EMAILJS_TEMPLATE_ID = "template_yigcv4r";
-const EMAILJS_PUBLIC_KEY = "PllvjNCVWWytwBvlw";
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_nwx6zip";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_l768d5f";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "PllvjNCVWWytwBvlw";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  // Calculate today's date in YYYY-MM-DD format for min attribute
+  const todayStr = new Date().toISOString().split("T")[0];
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setIsSuccess(false);
     setErrorMsg("");
+
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const firstName = formData.get("firstName") as string;
-    const lastName = formData.get("lastName") as string;
-    const email = formData.get("email") as string;
-    const subject = formData.get("subject") as string;
-    const message = formData.get("message") as string;
 
-    if (!firstName || !email || !message) {
-      setErrorMsg("Please fill in required fields.");
+    const fullName = (formData.get("fullName") as string || "").trim();
+    const email = (formData.get("email") as string || "").trim();
+    const phone = (formData.get("phone") as string || "").trim();
+    const service = (formData.get("service") as string || "").trim();
+    const preferredDate = (formData.get("preferredDate") as string || "").trim();
+    const message = (formData.get("message") as string || "").trim();
+
+    // 1. Validation for empty required fields
+    if (!fullName || !email || !phone || !service || !preferredDate || !message) {
+      setErrorMsg("Khadara yai form theek fill karo: Tamam fields fill karna zaroori hain.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // 2. Strict Gmail validation (@gmail.com required)
+    const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
+    if (!gmailRegex.test(email)) {
+      setErrorMsg("Khadara yai form theek fill karo: Email mein @gmail.com hona zaroori hai.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // 3. Strict Phone validation (Exactly 11 digits)
+    const phoneRegex = /^\d{11}$/;
+    if (!phoneRegex.test(phone)) {
+      setErrorMsg("Khadara yai form theek fill karo: Phone number exactly 11 digits ka hona chahiye.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // 4. Strict Date validation (Past date not allowed)
+    if (preferredDate < todayStr) {
+      setErrorMsg("Khadara yai form theek fill karo: Purani date select nahi kar saktay.");
       setIsSubmitting(false);
       return;
     }
 
     try {
       const templateParams = {
-        from_name: `${firstName} ${lastName}`,
-        from_email: email,
-        subject: subject,
+        website_name: "SAK Study & Travel",
+        full_name: fullName,
+        email: email,
+        phone: phone,
+        service: service,
+        preferred_date: preferredDate,
         message: message,
         reply_to: email,
       };
@@ -52,7 +85,7 @@ export default function Contact() {
       form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
-      setErrorMsg("Failed to send message. Please try again later.");
+      setErrorMsg("Failed to send appointment request. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -71,7 +104,7 @@ export default function Contact() {
                   <span className="material-symbols-outlined text-sm">
                     support_agent
                   </span>{" "}
-                  Contact Us
+                  Book Appointment
                 </span>
                 <h2 className="font-headline-md text-4xl font-bold mb-4">
                   Get In Touch With Our Experts
@@ -167,111 +200,153 @@ export default function Contact() {
                 </div>
               </a>
             </div>
-            {/* Contact Form */}
+
+            {/* Appointment Form */}
             <div className="bg-white p-8 rounded shadow-lg">
-              <h3 className="font-headline-md text-2xl font-bold mb-6">
-                Send a Message
+              <h3 className="font-headline-md text-2xl font-bold mb-6 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary-container">calendar_month</span>
+                Book an Appointment
               </h3>
+
+              {/* Error Alert Banner at top of form */}
+              {errorMsg && (
+                <div className="p-4 mb-6 rounded bg-red-50 border-l-4 border-red-500 text-red-700 text-sm font-medium flex items-start gap-3 shadow-sm animate-pulse">
+                  <span className="material-symbols-outlined text-red-500 shrink-0">error</span>
+                  <div>{errorMsg}</div>
+                </div>
+              )}
+
+              {/* Success Alert Banner */}
+              {isSuccess && (
+                <div className="p-4 mb-6 rounded bg-green-50 border-l-4 border-green-500 text-green-700 text-sm font-medium flex items-start gap-3 shadow-sm">
+                  <span className="material-symbols-outlined text-green-500 shrink-0">check_circle</span>
+                  <div>Appointment request sent successfully! We will contact you soon to confirm.</div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Full Name */}
+                <div>
+                  <label
+                    className="block text-sm font-label-bold mb-2 text-on-surface"
+                    htmlFor="fullName"
+                  >
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                {/* Email Address & Phone Number */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
                       className="block text-sm font-label-bold mb-2 text-on-surface"
-                      htmlFor="firstName"
+                      htmlFor="email"
                     >
-                      First Name
+                      Email Address (@gmail.com) <span className="text-red-500">*</span>
                     </label>
                     <input
                       className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
-                      id="firstName"
-                      name="firstName"
-                      placeholder="John"
-                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="example@gmail.com"
+                      type="email"
                       required
                     />
                   </div>
                   <div>
                     <label
                       className="block text-sm font-label-bold mb-2 text-on-surface"
-                      htmlFor="lastName"
+                      htmlFor="phone"
                     >
-                      Last Name
+                      Phone Number (11 digits) <span className="text-red-500">*</span>
                     </label>
                     <input
                       className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
-                      id="lastName"
-                      name="lastName"
-                      placeholder="Doe"
-                      type="text"
+                      id="phone"
+                      name="phone"
+                      placeholder="03001234567"
+                      type="tel"
+                      maxLength={11}
+                      onInput={(e) => {
+                        const input = e.currentTarget;
+                        input.value = input.value.replace(/\D/g, "").slice(0, 11);
+                      }}
+                      required
                     />
                   </div>
                 </div>
-                <div>
-                  <label
-                    className="block text-sm font-label-bold mb-2 text-on-surface"
-                    htmlFor="email"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
-                    id="email"
-                    name="email"
-                    placeholder="john@example.com"
-                    type="email"
-                    required
-                  />
+
+                {/* Service & Preferred Date */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      className="block text-sm font-label-bold mb-2 text-on-surface"
+                      htmlFor="service"
+                    >
+                      Service <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
+                      id="service"
+                      name="service"
+                      required
+                    >
+                      <option value="University Admission">University Admission</option>
+                      <option value="Visa Assistance">Visa Assistance</option>
+                      <option value="Scholarship Query">Scholarship Query</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      className="block text-sm font-label-bold mb-2 text-on-surface"
+                      htmlFor="preferredDate"
+                    >
+                      Preferred Date <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
+                      id="preferredDate"
+                      name="preferredDate"
+                      type="date"
+                      min={todayStr}
+                      required
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label
-                    className="block text-sm font-label-bold mb-2 text-on-surface"
-                    htmlFor="subject"
-                  >
-                    Subject
-                  </label>
-                  <select
-                    className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
-                    id="subject"
-                    name="subject"
-                  >
-                    <option>University Admission</option>
-                    <option>Visa Assistance</option>
-                    <option>Scholarship Query</option>
-                    <option>Other</option>
-                  </select>
-                </div>
+
+                {/* Message */}
                 <div>
                   <label
                     className="block text-sm font-label-bold mb-2 text-on-surface"
                     htmlFor="message"
                   >
-                    Message
+                    Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     className="w-full border border-gray-300 rounded px-4 py-2.5 focus:border-primary-container focus:ring-1 focus:ring-primary-container hover:border-primary-container transition-all outline-none bg-surface-container-lowest"
                     id="message"
                     name="message"
-                    placeholder="How can we help you?"
+                    placeholder="Describe your inquiry..."
                     rows={4}
                     required
                   ></textarea>
                 </div>
-
-                {errorMsg && (
-                  <p className="text-red-500 text-sm font-medium">{errorMsg}</p>
-                )}
-                {isSuccess && (
-                  <p className="text-green-600 text-sm font-medium">
-                    Message sent successfully! We'll get back to you soon.
-                  </p>
-                )}
 
                 <button
                   className="w-full bg-primary-container text-white px-8 py-3 rounded font-label-bold hover:bg-primary transition-all duration-300 shadow-[0_10px_30px_rgba(225,36,36,0.3)] hover:shadow-[0_15px_40px_rgba(225,36,36,0.5)] hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}{" "}
+                  {isSubmitting ? "Submitting..." : "Submit Appointment Request"}{" "}
                   <span className="material-symbols-outlined text-sm">send</span>
                 </button>
               </form>
